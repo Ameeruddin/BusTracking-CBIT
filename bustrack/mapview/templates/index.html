@@ -335,14 +335,16 @@
                         });
                         var markerc = new google.maps.Marker({
                           map: map,
+                          icon:"{% static 'markers/casetta_base.png' %}",
                           position:location,
-                          label:'CBIT',                    
+                                             
                         });
                         var myFunctinForListener = function(aMarker, aInfoWindow) {
                           google.maps.event.addListener(aMarker, 'click', function() {                          
                             aInfoWindow.open(map, aMarker);
                           });
                         }
+                        img="{% static 'markers/Car.png' %}"
                         {% for i in locs %}
                           var lat = parseFloat('{{i.lat}}');
                           var lng = parseFloat('{{i.lon}}');
@@ -350,6 +352,7 @@
                           var k='{{i.bno}}';
                           marker = new google.maps.Marker({
                             map: map,
+                            icon:img,
                             position: pos,
                             label:'{{i.bno}}',                      
                           });
